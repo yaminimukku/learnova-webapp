@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learnova Teaching Institute</title>
+</head>
+<body>
+<h1>${institute}</h1>
+<h2>Classes Offered (1 to 5)</h2>
+<ul>
+    <th:block th:each="cls : ${classes}">
+        <li>Class [[${cls}]]</li>
+    </th:block>
+</ul>
+
+<h2>Subjects</h2>
+<ul>
+    <th:block th:each="sub : ${subjects}">
+        <li>[[${sub}]]</li>
+    </th:block>
+</ul>
+</body>
+</html>
