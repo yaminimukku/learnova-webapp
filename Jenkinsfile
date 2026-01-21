@@ -21,7 +21,9 @@ pipeline {
          stage ('sonarqube Analysis') {
             steps {
                 withSonarQubeENV('sonarqube') {
-                    sh 'mvn sonar:sonar'
+                    sh '''mvn sonar:sonar
+                    -Dsonar.projectkey=learnova-app \
+                    -Dsonar.projectName=learnova-app '''
                 }
             }
          }
