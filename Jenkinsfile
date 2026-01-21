@@ -18,5 +18,12 @@ pipeline {
                 echo "test completed"
             }
          }
+         stage ('sonarqube Analysis') {
+            steps {
+                withSonarQubeENV('sonarqube') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+         }
     }  
 }
