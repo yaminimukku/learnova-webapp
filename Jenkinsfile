@@ -3,8 +3,7 @@ pipeline {
     stages {
          stage ('checkout') {
         steps {
-            git branch: 'feature/yamini' ,
-            url: https://github.com/yaminimukku/learnova-webapp.git
+          checkout scm
            }
          }  
          stage ('build') {
