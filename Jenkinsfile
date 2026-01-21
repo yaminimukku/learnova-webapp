@@ -8,7 +8,8 @@ pipeline {
          }  
          stage ('build') {
             steps {
-                echo "build sucess"
+                echo "building  branch: ${env.BRANCH_NAME}"
+                sh 'mvn clean package'
             }
          } 
     }  
