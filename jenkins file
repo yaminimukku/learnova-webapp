@@ -1,0 +1,9 @@
+pipeline {
+    agent any
+    stages('checkout') {
+        steps {
+            git branch: 'main' ,
+            url: https://github.com/yaminimukku/learnova-webapp.git
+           }
+    }
+}
