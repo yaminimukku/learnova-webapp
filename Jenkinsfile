@@ -22,14 +22,13 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     sh 'mvn sonar:sonar'
-                    
                 }
             }
          }
          stage ('qualitygate') {
             steps {
                 timeout(time: 2, unit: 'MINUTES') {
-                      waitForQualityGate abortpipeline: true 
+                      waitForQualityGate abortpipeline: true
                 }
             }
          }
