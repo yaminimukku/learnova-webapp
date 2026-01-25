@@ -36,7 +36,7 @@ pipeline {
            steps {
         // Use Jenkins credentials securely
         withCredentials([usernamePassword(
-            credentialsId: 'nexus-jenkins cred', // ID of your Jenkins credential
+            credentialsId: 'nexus-jenkinscred', // ID of your Jenkins credential
             usernameVariable: 'NEXUS_USER', 
             passwordVariable: 'NEXUS_PASS'
         )]) {
