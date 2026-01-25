@@ -32,13 +32,20 @@ pipeline {
         //         }
         //     }
         //  }
-        stage ('nexus ') {
-            steps {
-            sh 'mvn deploy -DskipTests'
+        stage('nexus') {
+           steps {
+        // Use Jenkins credentials securely
+        withCredentials([usernamePassword(
+            credentialsId: 'nexus-jenkins', // ID of your Jenkins credential
+            usernameVariable: 'NEXUS_USER', 
+            passwordVariable: 'NEXUS_PASS'
+        )]) {
+            // Run Maven deploy, it will pick up NEXUS_USER/NEXUS_PASS from settings.xml
+            sh 'mvn clean deploy -DskipTests'
+        }
+    }
+}
 
-        }
-        
-        }
     }  
 }
              
